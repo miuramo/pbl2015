@@ -51,4 +51,14 @@ public class SudokuPanel extends JPanel implements MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 	}
+
+	public void test() {
+		SDModel9x9 m2 = model.toSDModel9x9();
+		m2.debugprint();
+	}
+
+	public void shuffle() {
+		model = new SudokuModel();
+		repaint();
+	}
 }
