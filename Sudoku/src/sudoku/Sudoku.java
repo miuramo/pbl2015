@@ -32,7 +32,8 @@ public class Sudoku extends JFrame {
 		JButton jb2 = new JButton("2");
 		jb2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				mainP.test();
+				//mainP.test();
+				mainP.check();
 			}
 		});
 		buttonP.add(jb2);

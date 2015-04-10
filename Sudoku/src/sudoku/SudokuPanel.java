@@ -61,4 +61,10 @@ public class SudokuPanel extends JPanel implements MouseListener {
 		model = new SudokuModel();
 		repaint();
 	}
+	public void check(){
+		SDModel9x9 m2 = model.toSDModel9x9();
+		m2.errorcheck();
+		model = m2.toSudokuModel();
+		repaint();
+	}
 }

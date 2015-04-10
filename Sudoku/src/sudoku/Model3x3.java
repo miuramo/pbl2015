@@ -1,11 +1,13 @@
 package sudoku;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Model3x3 {
 	public int[][] m3x3;
+	public boolean[][] error3x3;
 	public Model3x3(){
 		reset();
 		setIA(iagen());		
@@ -13,6 +15,8 @@ public class Model3x3 {
 	public void paintComponent(Graphics2D g2d){
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
+				if (error3x3[i][j]) g2d.setColor(Color.red);
+				else g2d.setColor(Color.black);
 				g2d.drawString(String.valueOf(m3x3[i][j]), (i+1)*20, (j+1)*20);				
 			}
 		}
@@ -20,6 +24,7 @@ public class Model3x3 {
 	}
 	public void reset(){
 		m3x3 = new int[3][3];
+		error3x3 = new boolean[3][3];
 	}
 	public int[] col(int c){
 		int col[] = new int[3];

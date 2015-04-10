@@ -18,6 +18,7 @@ public class SudokuModel {
 	 * @param sdModel9x9
 	 */
 	public SudokuModel(SDModel9x9 sdModel9x9) {
+		model3x3 = new Model3x3[3][3];
 		for(int c=0;c<3;c++){
 			for(int r=0;r<3;r++){
 				model3x3[c][r] = sdModel9x9.get3x3Model(c, r);
@@ -46,5 +47,10 @@ public class SudokuModel {
 		int mc = c/3;
 		int mr = r/3;
 		return model3x3[mc][mr].m3x3[c%3][r%3];
+	}
+	public boolean getError(int c, int r) {
+		int mc = c/3;
+		int mr = r/3;
+		return model3x3[mc][mr].error3x3[c%3][r%3];
 	}
 }
