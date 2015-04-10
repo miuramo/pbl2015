@@ -14,7 +14,7 @@ public class SudokuModel {
 		}
 	}
 	/**
-	 * “™‰¿‚Èƒ‚ƒfƒ‹‚ð‚Â‚­‚é
+	 * Create Same Model Converted
 	 * @param sdModel9x9
 	 */
 	public SudokuModel(SDModel9x9 sdModel9x9) {
