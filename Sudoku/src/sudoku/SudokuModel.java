@@ -1,10 +1,12 @@
 package sudoku;
 
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class SudokuModel {
 	public Model3x3[][] model3x3;
-	
+
 	public SudokuModel(){
 		model3x3 = new Model3x3[3][3];
 		for(int i=0;i<3;i++){
@@ -12,7 +14,37 @@ public class SudokuModel {
 				model3x3[i][j] = new Model3x3();
 			}
 		}
+
+		Tane t = new Tane(true);
+		Tane[] ta = new Tane[9];
+		ta[0] = t;
+		ta[1] = ta[0].colrotT();
+		ta[2] = ta[1].colrotT();
+		ta[3] = ta[0].rowrotT();
+		ta[4] = ta[1].rowrotT();
+		ta[5] = ta[2].rowrotT();
+		ta[6] = ta[3].rowrotT();
+		ta[7] = ta[4].rowrotT();
+		ta[8] = ta[5].rowrotT();
+
+		ArrayList<Integer> ia = new ArrayList<Integer>();
+		for(int i=1;i<=9;i++){
+			ia.add(i);
+		}
+		Collections.shuffle(ia);
+
+		for(int i=0;i<9;i++){
+			ta[i].setValues(ia.get(i),model3x3);
+		}
 	}
+	//	public SudokuModel(){
+	//		model3x3 = new Model3x3[3][3];
+	//		for(int i=0;i<3;i++){
+	//			for(int j=0;j<3;j++){
+	//				model3x3[i][j] = new Model3x3();
+	//			}
+	//		}
+	//	}
 	/**
 	 * Create Same Model Converted
 	 * @param sdModel9x9
