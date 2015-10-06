@@ -19,7 +19,7 @@ public class AbstractDataStore {
 
 
 	public static String selectfile(boolean issave, String ext){
-		//		ƒtƒ@ƒCƒ‹ƒ_ƒCƒAƒƒO‚ğŠJ‚­
+		//		ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Jï¿½ï¿½
 		String cdir = System.getProperty("user.dir");
 		JFileChooser fd = new JFileChooser(cdir);
 		NullFileFilter nff = new NullFileFilter(ext);
@@ -28,7 +28,7 @@ public class AbstractDataStore {
 		if (issave) returnval = fd.showSaveDialog(null);
 		else returnval = fd.showOpenDialog(null);
 		if (returnval == JFileChooser.APPROVE_OPTION){
-			// Šg’£q‚ª‚Â‚¢‚Ä‚¢‚È‚¢‚Æ‚«C‚Ş‚è‚â‚è‚Â‚¯‚é
+			// ï¿½gï¿½ï¿½ï¿½qï¿½ï¿½ï¿½Â‚ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Cï¿½Ş‚ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½
 			StringBuffer path = new StringBuffer(fd.getSelectedFile().getAbsolutePath());
 			if (!path.toString().endsWith(ext)){
 				path.append(ext);
@@ -40,24 +40,24 @@ public class AbstractDataStore {
 	}
 	public static <E> void saveToFile(String fn, ArrayList<E> ary, String dotextension) {
 		if (fn == null) fn = selectfile(true, dotextension /*".satn"*/);
-		if (fn == null) return;//‚à‚µƒtƒ@ƒCƒ‹–¼‚ğ‘I‘ğ‚µ‚È‚©‚Á‚½‚ç
+		if (fn == null) return;//ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		FileReadWriter.writeBytesToFile(fn, byteSerializeExport(ary));
 		File f = new File(fn);
-		System.out.println(f.getAbsolutePath()+"\n‚É•Û‘¶‚µ‚Ü‚µ‚½");
+		System.out.println(f.getAbsolutePath()+"ã«ä¿å­˜ã—ã¾ã—ãŸ");
 	}
 	public static <E> ArrayList<E> loadFromFile(String fn, String dotextension){
 		if (fn == null) fn = selectfile(false, dotextension /*".satn"*/);
-		if (fn == null) return null;//‚à‚µƒtƒ@ƒCƒ‹–¼‚ğ‘I‘ğ‚µ‚È‚©‚Á‚½‚ç
+		if (fn == null) return null;//ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		byte[] ba = FileReadWriter.readBytesFromFile(fn);
 		File f = new File(fn);
-		System.out.println(f.getAbsolutePath()+"\n‚©‚ç“Ç‚İ‚İ‚Ü‚µ‚½");
+		System.out.println(f.getAbsolutePath()+"ã‹ã‚‰èª­ã¿è¾¼ã¿ã¾ã—ãŸ");
 		return byteSerializeImport(ba);
 	}
 	
 	public static <E> byte[] byteSerializeExport(ArrayList<E> ary) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		OutputStream gzipos = null;
-		ObjectOutputStream pobjos = null; // PNode‚ğ•Û‘¶‚·‚é‚Æ‚«‚ÍPObjectOutputStream
+		ObjectOutputStream pobjos = null; // PNodeï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½PObjectOutputStream
 
 		try {
 			gzipos = new GZIPOutputStream(baos);
