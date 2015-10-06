@@ -2,10 +2,13 @@ package sudoku;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Model3x3 {
+public class Model3x3 implements Serializable {
+	private static final long serialVersionUID = 4652161354049162573L;
+
 	public int[][] m3x3;
 	public boolean[][] error3x3;
 	public Model3x3(){

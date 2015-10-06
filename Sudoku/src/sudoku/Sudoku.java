@@ -38,6 +38,25 @@ public class Sudoku extends JFrame {
 		});
 		buttonP.add(jb2);
 		
+		JButton jb3 = new JButton("save");
+		jb3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				//mainP.test();
+				mainP.save();
+			}
+		});
+		buttonP.add(jb3);
+
+		JButton jb4 = new JButton("load");
+		jb4.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				//mainP.test();
+				mainP.load();
+			}
+		});
+		buttonP.add(jb4);
+
+		
 		
 		getContentPane().add(buttonP, BorderLayout.SOUTH);
 		

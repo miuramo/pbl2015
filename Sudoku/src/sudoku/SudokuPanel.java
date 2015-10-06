@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -65,6 +66,20 @@ public class SudokuPanel extends JPanel implements MouseListener {
 		SDModel9x9 m2 = model.toSDModel9x9();
 		m2.errorcheck();
 		model = m2.toSudokuModel();
+		repaint();
+	}
+
+	public void save() {
+		ArrayList<SudokuModel> sdkary = new ArrayList<SudokuModel>();
+		sdkary.add(model);
+		AbstractDataStore.saveToFile(null, sdkary, ".sdk");
+
+	}
+
+	public void load() {
+		ArrayList<SudokuModel> assary = AbstractDataStore.loadFromFile(null, ".sdk");
+
+		model = assary.get(0);
 		repaint();
 	}
 }
